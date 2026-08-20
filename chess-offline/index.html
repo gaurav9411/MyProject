@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Walnut &amp; Brass — Offline Chess</title>
+<meta name="description" content="A two-player chess board that works fully offline, right in your browser." />
+<meta name="theme-color" content="#1f3d2b" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="masthead">
+  <p class="eyebrow">Local Two&#8209;Player</p>
+  <h1>Walnut &amp; Brass</h1>
+  <p class="sub">A chess board that doesn't need the internet.</p>
+  <span id="offlinePill" class="offline-pill">
+    <span class="dot"></span>
+    <span id="offlineText">Online</span>
+  </span>
+</header>
+
+<main class="table">
+  <div class="board-wrap">
+    <div class="board-frame" id="boardFrame">
+      <!-- coordinate labels + board injected by app.js -->
+    </div>
+  </div>
+
+  <aside class="side-panel">
+    <section class="card">
+      <h2>Turn</h2>
+      <div class="turn-row">
+        <span id="turnSwatch" class="turn-swatch w"></span>
+        <span id="turnLabel">White to move</span>
+      </div>
+      <p id="statusLine" class="status-line"></p>
+      <div class="buttons">
+        <button id="newGameBtn">New game</button>
+        <button id="undoBtn">Undo</button>
+        <button id="flipBtn">Flip board</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Captured</h2>
+      <div id="capturedWhite" class="captures" aria-label="Pieces captured by White"></div>
+      <div id="capturedBlack" class="captures" aria-label="Pieces captured by Black"></div>
+    </section>
+
+    <section class="card">
+      <h2>Moves</h2>
+      <div class="moves-list">
+        <ol id="movesList"></ol>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<footer>
+  Installs to your home screen and keeps working with no signal — everything
+  runs locally in this browser tab, and no moves are sent anywhere.
+</footer>
+
+<div id="promoOverlay" class="promo-overlay" hidden>
+  <div class="promo-box">
+    <p>Promote pawn to:</p>
+    <div class="promo-choices" id="promoChoices"></div>
+  </div>
+</div>
+
+<script src="chess-engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
